@@ -647,6 +647,9 @@ namespace CNTK
                 case PrimitiveOpType::Cosh:
                     computationNodePtr = New<CoshNode<ElementType>>(network->GetDeviceId(), internalNodeName);
                     break;
+                case PrimitiveOpType::Asinh:
+                    computationNodePtr = New<AsinhNode<ElementType>>(network->GetDeviceId(), internalNodeName);
+                    break;
                 case PrimitiveOpType::Sinh:
                     computationNodePtr = New<SinhNode<ElementType>>(network->GetDeviceId(), internalNodeName);
                     break;
@@ -1046,8 +1049,14 @@ namespace CNTK
                     auto blendTimeConstant = functionConfig[PrimitiveFunction::AttributeNameBlendTimeConstant].Value<double>();
                     auto epsilon = functionConfig[PrimitiveFunction::AttributeNameEpsilon].Value<double>();
                     auto useCuDNNEngine = functionConfig[PrimitiveFunction::AttributeNameUseCuDNNEngine].Value<bool>();
-
-                    computationNodePtr = New<BatchNormalizationNode<ElementType>>(network->GetDeviceId(), internalNodeName, spatial, normalizationTimeConstant, blendTimeConstant, epsilon, !useCuDNNEngine, ImageLayoutKind::CHW);
+                    
+                    bool disableRegularization = false;
+                    if (functionConfig.Contains(PrimitiveFunction::AttributeNameDisableRegularization))
+                    {
+                        disableRegularization = functionConfig[PrimitiveFunction::AttributeNameDisableRegularization].Value<bool>();
+                    }
+                    
+                    computationNodePtr = New<BatchNormalizationNode<ElementType>>(network->GetDeviceId(), internalNodeName, spatial, normalizationTimeConstant, blendTimeConstant, epsilon, !useCuDNNEngine, disableRegularization, ImageLayoutKind::CHW);
                     break;
                 }
                 case PrimitiveOpType::Combine:

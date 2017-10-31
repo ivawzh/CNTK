@@ -88,6 +88,7 @@ namespace CNTK
         {PrimitiveOpType::Sin, L"Sin"},
         {PrimitiveOpType::Cos, L"Cos"},
         {PrimitiveOpType::Cosh, L"Cosh"},
+        {PrimitiveOpType::Asinh, L"Asinh"},
         {PrimitiveOpType::Sinh, L"Sinh"},
         {PrimitiveOpType::Pass, L"Pass"},
         {PrimitiveOpType::Block, L"Block"},
@@ -243,6 +244,7 @@ namespace CNTK
         static const std::wstring AttributeNameBlendTimeConstant;
         static const std::wstring AttributeNameEpsilon;
         static const std::wstring AttributeNameUseCuDNNEngine;
+        static const std::wstring AttributeNameDisableRegularization;
         static const std::wstring AttributeNameNewDataType;
         static const std::wstring AttributeNameNewDynamicAxes;
         static const std::wstring AttributeNameNewSequenceAxisLengthScalingFactor;
@@ -288,6 +290,7 @@ namespace CNTK
         static const std::wstring AttributeNameKernelShape;
         static const std::wstring AttributeNameBias;
         static const std::wstring AttributeNameDepthRadius;
+        static const std::wstring AttributeNameCustomAttributes;
 
     protected:
         PrimitiveFunction(PrimitiveOpType op, const std::vector<Variable>& inputs, Dictionary&& functionConfig, const std::wstring& functionName, const std::wstring& uid)
