@@ -6870,7 +6870,7 @@ template <class ElemType>
 void CPUMatrix<ElemType>::SetCompatibleMode()
 {
     // not supported in MKLML yet
-	// #ifdef USE_MKL
+    // #ifdef USE_MKL
     //    if (mkl_cbwr_set(MKL_CBWR_COMPATIBLE) != MKL_CBWR_SUCCESS)
     //        RuntimeError("Could not set MKL compatible mode.");
     // #endif
