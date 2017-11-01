@@ -113,7 +113,7 @@ enable_asgd=$default_use_asgd
 default_path_list="/usr /usr/local /opt /opt/local /lib /usr/lib"
 
 # List from best to worst choice
-default_mkls="CNTKCustomMKL"
+default_mkls="mklml"
 default_openblas=""
 
 default_boost="boost-1.60.0"
@@ -744,7 +744,7 @@ do
                 mkl_path=$(find_mkl)
                 if test x$mkl_path = x
                 then
-                    echo "Cannot find CNTK custom MKL directory (version $cntk_custom_mkl_version)"
+                    echo "Cannot find MKLML directory"
                     echo "Please specify a value for --with-mkl"
                     exit 1
                 fi
@@ -753,7 +753,7 @@ do
                 then
                     mkl_path=$optarg
                 else
-                    echo "Invalid CNTK custom MKL directory $optarg"
+                    echo "Invalid MKLML directory $optarg"
                     exit 1
                 fi
             fi
@@ -1142,7 +1142,6 @@ case $mathlib in
     mkl)
         echo MKL_PATH=$mkl_path >> $config
         echo MKL_THREADING=$mkl_threading >> $config
-        echo CNTK_CUSTOM_MKL_VERSION=$cntk_custom_mkl_version >> $config
         ;;
     openblas)
         echo OPENBLAS_PATH=$openblas_path >> $config

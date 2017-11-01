@@ -118,7 +118,7 @@
     <ClInclude Include="CPUMatrixImpl.h">
       <Filter>CPU</Filter>
     </ClInclude>
-    <ClInclude Include="MklDnnCommon.h">
+    <ClInclude Include="Mkl2017DnnCommon.h">
       <Filter>Common\Include</Filter>
     </ClInclude>
   </ItemGroup>

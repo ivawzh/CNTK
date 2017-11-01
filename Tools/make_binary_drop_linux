@@ -147,8 +147,8 @@ declare -a includeFiles=("Eval.h")
 declare -a includeFiles20=("CNTKLibrary.h" "CNTKLibraryInternals.h")
 
 # Set dependency sources paths
-mklVersion="3"
-mklPath="/usr/local/lib"
+mklmlVersion="mklml_lnx_2018.0.1.20171007"
+mklPath="/usr/local/mklml/$mklmlVersion/lib"
 opencvVersion="3.1.0"
 opencvPath="/usr/local/opencv-$opencvVersion/lib"
 libzipPath="/usr/local/lib"

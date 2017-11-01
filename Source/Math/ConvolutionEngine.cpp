@@ -6,7 +6,7 @@
 #include "stdafx.h"
 #include "ConvolutionEngine.h"
 #include "CuDnnFactories.h"
-#include "MklDnnCommon.h"
+#include "Mkl2017DnnCommon.h"
 
 namespace Microsoft { namespace MSR { namespace CNTK {
 
@@ -616,7 +616,7 @@ protected:
     //    In case minibatch size == 1 this step is not required and step 2 writes results directly to output (out).
     void ForwardCore(const Mat& in, const Mat& kernel, Mat& out, Mat& workspace) override
     {
-#ifdef USE_MKLDNN
+#ifdef USE_MKL2017DNN
         if (ForwardCoreMKL(in, kernel, out)) return;
 #endif
 
@@ -691,7 +691,7 @@ protected:
     //    In case minibatch size == 1 this step is not required and step 3 writes results directly to output (grad).
     void BackwardDataCore(const Mat& srcGrad, const Mat& kernel, Mat& grad, bool accumulateGradient, Mat& workspace) override
     {
-#ifdef USE_MKLDNN
+#ifdef USE_MKL2017DNN
         if (BackwardDataMKL(srcGrad, kernel, grad, accumulateGradient, workspace)) return;
 #else
         UNUSED(accumulateGradient);
@@ -790,7 +790,7 @@ protected:
     //    [NW'H' x WHC]^T * [NW'H' x K] -> [WHC x K] - kernel gradients.
     void BackwardKernelCore(const Mat& srcGrad, const Mat& in, Mat& kernelGrad, bool accumulateGradient, bool /*allowReuse*/, Mat& workspace) override
     {
-#ifdef USE_MKLDNN
+#ifdef USE_MKL2017DNN
         if (BackwardKernelMKL(srcGrad, in, kernelGrad, accumulateGradient, workspace)) return;
 #else
         UNUSED(accumulateGradient);
@@ -863,7 +863,7 @@ protected:
         }
     }
 
-#ifdef USE_MKLDNN
+#ifdef USE_MKL2017DNN
     class MKLConvolutionContext
     {
     public:

@@ -6869,7 +6869,8 @@ int CPUMatrix<ElemType>::GetMaxNumThreads()
 template <class ElemType>
 void CPUMatrix<ElemType>::SetCompatibleMode()
 {
-    // #ifdef USE_MKL
+    // not supported in MKLML yet
+	// #ifdef USE_MKL
     //    if (mkl_cbwr_set(MKL_CBWR_COMPATIBLE) != MKL_CBWR_SUCCESS)
     //        RuntimeError("Could not set MKL compatible mode.");
     // #endif

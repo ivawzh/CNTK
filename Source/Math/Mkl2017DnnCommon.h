@@ -4,11 +4,13 @@
 //
 #pragma once
 
+// this header exposes MKL2017's DNN functions
+
 #ifdef USE_MKL
-#define USE_MKLDNN
+#define USE_MKL2017DNN
 #endif
 
-#ifdef USE_MKLDNN
+#ifdef USE_MKL2017DNN
 
 #include "mkl_dnn.h"
 
