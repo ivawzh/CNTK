@@ -46,7 +46,7 @@
 
 
 #ifdef USE_MKL
-// requires MKL 10.0 and above
+// requires MKLML 0.11 and above
 #include <mkl_cblas.h>
 #include <mkl_lapacke.h>
 #include <mkl_service.h>

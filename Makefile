@@ -9,7 +9,7 @@
 # that provides
 #   BUILDTYPE= One of release or debug
 #     defaults to release
-#   MKL_PATH= path to CNTK custom MKL installation
+#   MKL_PATH= path to MKLML installation
 #     only needed if MATHLIB=mkl
 #   GDK_INCLUDE_PATH= path to CUDA GDK include path, so $(GDK_INCLUDE_PATH)/nvml.h exists
 #     defaults to /usr/include/nvidia/gdk

@@ -24,7 +24,7 @@
 #pragma warning(disable : 4127) // conditional expression is constant; "if (sizeof(ElemType)==sizeof(float))" triggers this
 
 #ifdef USE_MKL
-// requires MKL 10.0 and above
+// requires MKLML 0.11 and above
 #include <mkl_cblas.h>
 #include <mkl_lapacke.h>
 #else
