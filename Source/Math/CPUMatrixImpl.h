@@ -5200,6 +5200,9 @@ void CPUMatrix<ElemType>::SVD(const CPUMatrix<ElemType>& A, CPUMatrix<ElemType>&
     SIGMA.RequireSize(std::min(m, n), 1);
     VT.RequireSize(n, n);
 
+#if CNTK_UWP
+    RuntimeError("Error, LAPACKE_*gesvd is not supported for UWP.\n");
+#else
     if (sizeof(ElemType) == sizeof(double))
     {
         std::vector<double> superb(std::max(std::min(m, n) - 1, 1));
@@ -5212,6 +5215,7 @@ void CPUMatrix<ElemType>::SVD(const CPUMatrix<ElemType>& A, CPUMatrix<ElemType>&
         info = LAPACKE_sgesvd((int) MatrixOrder::ColMajor, 'A', 'A', (int) m, (int) n, reinterpret_cast<float*>(A.Data()), (int) lda, reinterpret_cast<float*>(SIGMA.Data()),
             reinterpret_cast<float*>(U.Data()), (int) ldu, reinterpret_cast<float*>(VT.Data()), (int) ldvt, &superb[0]);
     }
+#endif
 
     if (info > 0)
     {
