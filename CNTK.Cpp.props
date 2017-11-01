@@ -66,12 +66,12 @@
 
   <PropertyGroup Condition="!$(IsUWP)">
     <MathLibrary>MKL</MathLibrary>
-    <MathIncludePath>$(CNTK_MKL_PATH)\include</MathIncludePath>
+    <MathIncludePath>$(MKLML_PATH)\include</MathIncludePath>
     <MathDefine>USE_MKL</MathDefine>
     <!-- Only non-UWP configurations consume PerformanceProfiler -->
     <ReaderLibs>Cntk.PerformanceProfiler-$(CntkComponentVersion).lib;$(ReaderLibs)</ReaderLibs>
-    <MathLibraryName>CNTK MKL ML Library</MathLibraryName>
-    <MathLibraryPath>$(CNTK_MKL_PATH)\lib</MathLibraryPath>
+    <MathLibraryName>MKL-ML Library</MathLibraryName>
+    <MathLibraryPath>$(MKLML_PATH)\lib</MathLibraryPath>
     <MathLinkLibrary>mklml.lib</MathLinkLibrary>
     <MathDelayLoad>mklml.dll</MathDelayLoad>
     <MathPostBuildCopyPattern>$(MathLibraryPath)\*.dll</MathPostBuildCopyPattern>
