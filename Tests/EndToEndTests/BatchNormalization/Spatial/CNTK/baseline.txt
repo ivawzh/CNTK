@@ -325,7 +325,7 @@ Memory Sharing: Out of 41 matrices, 19 are shared as 7, and 22 are not shared.
 01/04/2017 07:44:23: Starting Epoch 2: learning rate per sample = 0.000469  effective momentum = 0.000000  momentum as time constant = 0.0 samples
 
 01/04/2017 07:44:23: Starting minibatch loop.
-01/04/2017 07:44:23: Finished Epoch[ 2 of 2]: [Training] CE = 2.21359444 * 1024; Err = 0.80859375 * 1024; totalSamplesSeen = 2048; learningRatePerSample = 0.00046874999; epochTime=0.253057s
+01/04/2017 07:44:23: Finished Epoch[ 2 of 2]: [Training] CE = 2.21359444 * 1024; Err = 0.80761719 * 1024; totalSamplesSeen = 2048; learningRatePerSample = 0.00046874999; epochTime=0.253057s
 01/04/2017 07:44:23: SGD: Saving checkpoint model 'C:\cygwin64\tmp\cntk-test-20170103234236.850903\BatchNormalization\Spatial_CuDNN@debug_gpu/Models/02_BatchNormConv'
 
 01/04/2017 07:44:24: Action "train" complete.
